@@ -131,6 +131,23 @@ def generate_function_call(
         else:
             running_prefix += '"'
             str_val = extract_string_param(running_prefix, model)
+
+            if "\\\\" in str_val:
+                str_val = str_val.replace("\\\\", "\\")
+
+            if p_name == "path":
+                for word in prompt.split():
+                    clean_word = word.strip(" '\"`")
+                    if (
+                        clean_word.endswith(str_val)
+                        or str_val.endswith(clean_word)
+                    ):
+                        str_val = clean_word
+                        break
+
+            if p_name == "template" and ":" in prompt:
+                str_val = prompt.split(":", 1)[1].strip()
+
             parameters[p_name] = str_val
             running_prefix += f'{str_val}"'
 
