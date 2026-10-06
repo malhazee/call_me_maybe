@@ -1,0 +1,32 @@
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Type checker & linter caches
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# 42 Subject mandate: Output directory must NOT be committed
+data/output/
+
+# Temporary lab and exploration files (if not needed in repo)
+lab*.py
+scratch*.py
+
+# Archives
+*.zip
+attachments_project_ai/
+moulinette/
