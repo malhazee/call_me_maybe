@@ -24,4 +24,4 @@ class PromptInput(BaseModel):
 class FunctionCallResult(BaseModel):
     prompt: str
     name: str
-    parameters: Dict[str, Any]
+    parameters: Dict[str, Any] = Field(default_factory=dict)
